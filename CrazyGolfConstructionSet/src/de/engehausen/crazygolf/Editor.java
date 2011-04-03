@@ -7,11 +7,9 @@ import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
-import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-import javax.imageio.ImageIO;
 import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
 import javax.swing.JComboBox;
@@ -42,6 +40,9 @@ import de.engehausen.crazygolf.ui.TemplatePanel;
 import de.engehausen.mobile.crazygolf.Element;
 import de.engehausen.mobile.crazygolf.ElementReader;
 
+/**
+ * Main editor class.
+ */
 public class Editor extends JFrame implements ActionListener, ElementModificationListener {
 	
 	private static final String ABOUT_TEXT = "<html><b>Crazy Golf Construction Set</b><br><br>This is an editor for creating courses in the<br>mobile phone game <b>Crazy Golf</b><br><br>Author: Jan Engehausen, 2011</html>";
@@ -335,7 +336,7 @@ public class Editor extends JFrame implements ActionListener, ElementModificatio
 	 */
 	public static void main(final String[] args) throws Throwable {
 		final ElementReader rdr = ElementReader.getInstance();
-		final Element[] arr = rdr.read(ElementReader.class.getResourceAsStream(ElementReader.DEFAULT_ELEMENTS));
+		final Element[] arr = rdr.read(ElementReader.class.getResourceAsStream(de.engehausen.mobile.crazygolf.Constants.DEFAULT_ELEMENTS));
 		final Editor editor = new Editor(new Elements(arr));
 		editor.setVisible(true);
 		new Splash(editor);
