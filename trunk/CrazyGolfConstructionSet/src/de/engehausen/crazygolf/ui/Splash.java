@@ -14,12 +14,20 @@ import javax.swing.Timer;
 
 import de.engehausen.crazygolf.Editor;
 
+/**
+ * Splash window.
+ */
 public class Splash extends JWindow {
 
 	private static final long serialVersionUID = 1L;
 	
 	private final BufferedImage image;
 
+	/**
+	 * Creates the splash window for the given editor.
+	 * @param editor the editor for which to show the splash
+	 * @throws IOException in case of error
+	 */
 	public Splash(final Editor editor) throws IOException {
 		super(new Frame());
 		final Rectangle rect = editor.getBounds();

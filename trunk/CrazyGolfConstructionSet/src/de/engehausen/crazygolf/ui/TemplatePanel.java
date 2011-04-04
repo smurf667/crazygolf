@@ -15,13 +15,20 @@ import de.engehausen.crazygolf.event.TemplateSelectionListener;
 import de.engehausen.crazygolf.model.Elements;
 import de.engehausen.mobile.crazygolf.Element;
 
+/**
+ * List with all known elements, presented as "template".
+ */
 public class TemplatePanel extends JPanel implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
 	
 	private final List<TemplateSelectionListener> listeners;
 	private final Elements elements;
-	
+
+	/**
+	 * Creates the template panel.
+	 * @param allElements the elements backing the templates.
+	 */
 	public TemplatePanel(final Elements allElements) {
 		super();
 		elements = allElements;
@@ -37,11 +44,19 @@ public class TemplatePanel extends JPanel implements ActionListener {
 			}
 		}		
 	}
-	
+
+	/**
+	 * Adds a template selection listener.
+	 * @param l the template selection listener.
+	 */
 	public void addTemplateSelectionListener(final TemplateSelectionListener l) {
 		listeners.add(l);
 	}
 
+	/**
+	 * Removes a template selection listener.
+	 * @param l the template selection listener.
+	 */
 	public void removeTemplateSelectionListener(final TemplateSelectionListener l) {
 		listeners.remove(l);
 	}
@@ -52,6 +67,10 @@ public class TemplatePanel extends JPanel implements ActionListener {
 		notifySelection(elements.getAllModes(button.element.getName()));
 	}
 
+	/**
+	 * Notify all listeners about a template selection.
+	 * @param templates the selected templates.
+	 */
 	protected void notifySelection(final Element[] templates) {
 		for (TemplateSelectionListener l : listeners) {
 			l.templateSelected(templates);

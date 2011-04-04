@@ -15,6 +15,10 @@ public class HelpWindow extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Creates the help window
+	 * @throws IOException in case of error
+	 */
 	public HelpWindow() throws IOException {
 		super("Help");
 		final JEditorPane htmlPane = new JEditorPane();

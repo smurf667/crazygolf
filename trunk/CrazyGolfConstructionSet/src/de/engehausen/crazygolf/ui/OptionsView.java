@@ -14,6 +14,9 @@ import javax.swing.JRadioButton;
 import de.engehausen.crazygolf.event.ElementSelectionListener;
 import de.engehausen.crazygolf.model.Element;
 
+/**
+ * Shows the options of an element.
+ */
 public class OptionsView extends JPanel implements ElementSelectionListener, ActionListener {
 
 	private static final long serialVersionUID = 1L;
@@ -29,6 +32,10 @@ public class OptionsView extends JPanel implements ElementSelectionListener, Act
 	
 	private final JCheckBox vectors;
 	
+	/**
+	 * Creates the view based on the given parent panel.
+	 * @param aParent the parent panel.
+	 */
 	public OptionsView(final ElementPanel aParent) {
 		super();
 		parent = aParent;
