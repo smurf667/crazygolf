@@ -2,6 +2,9 @@ package de.engehausen.crazygolf.event;
 
 import de.engehausen.crazygolf.model.Element;
 
+/**
+ * Listener for element modifications.
+ */
 public interface ElementModificationListener {
 
 	/**

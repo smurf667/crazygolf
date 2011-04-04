@@ -25,10 +25,15 @@ public class Course {
 		holes = Collections.unmodifiableList(temp);
 	}
 
+	/**
+	 * Returns the name of the course.
+	 * @return the name of the course.
+	 */
 	public String getName() {
 		return courseName;
 	}
-	
+
+	// non-javadoc: see superclass
 	public String toString() {
 		final StringBuilder sb = new StringBuilder(8192);
 		sb.append(courseName).append('\n');
@@ -41,7 +46,11 @@ public class Course {
 		}
 		return sb.toString();
 	}
-	
+
+	/**
+	 * Returns a list of all holes of the course.
+	 * @return a list of all holes of the course.
+	 */
 	public List<Hole> getHoles() {
 		return holes;
 	}

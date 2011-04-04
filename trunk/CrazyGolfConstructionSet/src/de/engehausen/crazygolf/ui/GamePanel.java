@@ -27,6 +27,9 @@ import de.engehausen.crazygolf.event.ZoomListener;
 import de.engehausen.crazygolf.model.Element;
 import de.engehausen.crazygolf.model.Hole;
 
+/**
+ * Shows the currently select hole of a course.
+ */
 public class GamePanel extends JPanel implements ElementModificationListener, MouseListener, MouseMotionListener, PlaceActionHandler, KeyListener, ModificationActionHandler, VectorDisplayListener {
 
 	private static final long serialVersionUID = 1L;
@@ -45,7 +48,10 @@ public class GamePanel extends JPanel implements ElementModificationListener, Mo
 	private final List<ElementModificationListener> modificationListeners;
 	private final List<ElementSelectionListener> elementSelectionListeners;
 	private final List<ZoomListener> zoomListeners;
-	
+
+	/**
+	 * Creates the view.
+	 */
 	public GamePanel() {
 		super();
 		selection = new ArrayList<Element>(16);
@@ -158,10 +164,17 @@ public class GamePanel extends JPanel implements ElementModificationListener, Mo
 		}
 	}
 
+	/**
+	 * Returns the current hole.
+	 * @return the current hole.
+	 */
 	public Hole getHole() {
 		return hole;
 	}
 
+	/**
+	 * Sets the current hole and updates the view.
+	 */
 	public void setHole(final Hole aHole) {
 		hole = aHole;
 		resetSelectionRect();
@@ -261,7 +274,8 @@ public class GamePanel extends JPanel implements ElementModificationListener, Mo
 			repaint(); 
 		}
 	}
-	
+
+	// non-javadoc: see interface
 	public void setPlacingElement(final Element anElement) {
 		if (hole != null) {
 			placingElement = anElement;

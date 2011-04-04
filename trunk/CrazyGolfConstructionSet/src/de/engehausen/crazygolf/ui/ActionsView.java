@@ -23,6 +23,9 @@ import de.engehausen.crazygolf.event.ModificationActionHandler;
 import de.engehausen.crazygolf.event.PlaceActionHandler;
 import de.engehausen.crazygolf.model.Element;
 
+/**
+ * A view with all the actions possible on an element.
+ */
 public class ActionsView extends JPanel implements ElementSelectionListener, ActionListener, FocusListener {
 
 	private static final long serialVersionUID = 1L;
@@ -53,7 +56,11 @@ public class ActionsView extends JPanel implements ElementSelectionListener, Act
 			return true;
 		}
 	};
-	
+
+	/**
+	 * Creates the view.
+	 * @param aParent the parent element panel of the view.
+	 */
 	public ActionsView(final ElementPanel aParent) {
 		super();
 		parent = aParent;
@@ -110,9 +117,18 @@ public class ActionsView extends JPanel implements ElementSelectionListener, Act
 		}
 	}
 	
+	/**
+	 * Sets the handler for placing elements.
+	 * @param handler the handler for placing elements.
+	 */
 	public void setPlaceActionHandler(final PlaceActionHandler handler) {
 		placingHandler = handler;
 	}
+	
+	/**
+	 * Sets the handler for modification events.
+	 * @param handler the handler for modification events.
+	 */
 	public void setModificationActionHandler(final ModificationActionHandler handler) {
 		modificationHandler = handler;
 	}

@@ -18,6 +18,9 @@ import javax.imageio.ImageIO;
 import de.engehausen.crazygolf.Editor;
 import de.engehausen.mobile.crazygolf.Element;
 
+/**
+ * A collection with all known elements.
+ */
 public class Elements {
 
 	private final List<Element> elementsList;
@@ -26,6 +29,10 @@ public class Elements {
 	private final Map<String, String> id2name;
 	private GraphicsConfiguration configuration;	
 	
+	/**
+	 * Creates the collection from the element list.
+	 * @param anElementList a list of all known elements.
+	 */
 	public Elements(final Element[] anElementList) {
 		elementsList = Collections.unmodifiableList(Arrays.asList(anElementList));
 		elementImages = new IdentityHashMap<Element, BufferedImage>(anElementList.length);
@@ -43,15 +50,30 @@ public class Elements {
 	public List<Element> getAllElements() {
 		return elementsList;
 	}
-	
+
+	/**
+	 * Returns all modes for an element.
+	 * @param e the element for which to return all modes
+	 * @return all modes for the element.
+	 */
 	public Element[] getAllModes(final Element e) {
 		return getAllModes(e.getName());
 	}
-	
+
+	/**
+	 * Returns all modes for an element by its name.
+	 * @param name the name of the element
+	 * @return all modes for the element.
+	 */
 	public Element[] getAllModes(final String name) {
 		return allModes.get(name);
 	}
 	
+	/**
+	 * Returns the name of an element by its id.
+	 * @param id the id of an element.
+	 * @return the name of the element
+	 */
 	public String getName(final int id) {
 		return id2name.get(Integer.toString(id));
 	}
@@ -73,7 +95,12 @@ public class Elements {
 		}
 		return result;
 	}
-	
+
+	/**
+	 * Returns the graphics configuration backing the given image.
+	 * @param anImage an image
+	 * @return the images' graphics configuration.
+	 */
 	protected GraphicsConfiguration getGraphicsConfiguration(final BufferedImage anImage) {
 		if (configuration == null) {
 			final Graphics2D temp = anImage.createGraphics();
@@ -82,7 +109,13 @@ public class Elements {
 		}
 		return configuration;
 	}
-	
+
+	/**
+	 * Creates an image for the given element.
+	 * @param e the element
+	 * @return the image of the element
+	 * @throws IOException in case of error
+	 */
 	protected BufferedImage createImage(final Element e) throws IOException {
 		final BufferedImage template = ImageIO.read(Editor.class.getResourceAsStream(e.getFileName()));		
 		final BufferedImage result = getGraphicsConfiguration(template).createCompatibleImage(e.getWidth(), e.getHeight(), Transparency.BITMASK);

@@ -19,6 +19,15 @@ import de.engehausen.crazygolf.event.ZoomListener;
 import de.engehausen.crazygolf.model.Elements;
 import de.engehausen.mobile.crazygolf.Element;
 
+/**
+ * The element panel; composed of different "views", e.g.
+ * <ul>
+ * <li>element view
+ * <li>actions view
+ * <li>options view
+ * <li>zoom view
+ * </ul>
+ */
 public class ElementPanel extends JPanel implements TemplateSelectionListener, ElementSelectionListener, ElementModificationListener {
 
 	private static final long serialVersionUID = 1L;
@@ -35,6 +44,10 @@ public class ElementPanel extends JPanel implements TemplateSelectionListener, E
 	private final List<ElementModificationListener> modificationListeners;
 	private final List<VectorDisplayListener> vectorListeners;
 
+	/**
+	 * Creates the elment panel and its views.
+	 * @param allElements all known elements.
+	 */
 	public ElementPanel(final Elements allElements) {
 		super();
 		elements = allElements;
@@ -65,16 +78,28 @@ public class ElementPanel extends JPanel implements TemplateSelectionListener, E
 		add(views);
 	}
 
+	/**
+	 * Show or hide the vector fields using arrows on the graphics.
+	 * @param flag <code>true</code> to show the arrows, <code>false/<code> otherwise
+	 */
 	public void setShowVector(final boolean flag) {
 		for (int i = vectorListeners.size(); i-->0; ) {
 			vectorListeners.get(i).setShowVector(flag);
 		}
 	}
 
+	/**
+	 * Sets the handler for placing elements.
+	 * @param handler the handler for placing elements.
+	 */
 	public void setPlaceActionHandler(final PlaceActionHandler handler) {
 		actionsView.setPlaceActionHandler(handler);
 	}
 
+	/**
+	 * Sets the handler for modification events.
+	 * @param handler the handler for modification events.
+	 */
 	public void setModificationActionHandler(final ModificationActionHandler handler) {
 		actionsView.setModificationActionHandler(handler);		
 	}
@@ -111,6 +136,10 @@ public class ElementPanel extends JPanel implements TemplateSelectionListener, E
 		vectorListeners.remove(aListener);
 	}
 
+	/**
+	 * Returns the current element the panel is showing.
+	 * @return the element the panel is showing.
+	 */
 	public de.engehausen.crazygolf.model.Element getCurrent() {
 		return current;
 	}
@@ -135,11 +164,19 @@ public class ElementPanel extends JPanel implements TemplateSelectionListener, E
 		optionsView.elementSelected(element);
 		elementView.elementSelected(element);
 	}
-	
+
+	/**
+	 * Returns the zoom listener.
+	 * @return the zoom listener.
+	 */
 	public ZoomListener getZoomListener() {
 		return zoomView;
 	}
 
+	/**
+	 * Sets the mode of the currently showing element.
+	 * @param type the mode of the element.
+	 */
 	public void setMode(final int type) {
 		if (current != null) {
 			current.setMode(type);
@@ -148,6 +185,10 @@ public class ElementPanel extends JPanel implements TemplateSelectionListener, E
 		}
 	}
 
+	/**
+	 * Flips the currently showing element horizontally.
+	 * @param selected whether or not to flip.
+	 */
 	public void setFlippedH(final boolean selected) {
 		if (current != null) {
 			current.setFlippedH(selected);
@@ -156,6 +197,10 @@ public class ElementPanel extends JPanel implements TemplateSelectionListener, E
 		}
 	}
 
+	/**
+	 * Flips the currently showing element vertically.
+	 * @param selected whether or not to flip.
+	 */
 	public void setFlippedV(final boolean selected) {
 		if (current != null) {
 			current.setFlippedV(selected);
@@ -164,6 +209,10 @@ public class ElementPanel extends JPanel implements TemplateSelectionListener, E
 		}
 	}
 
+	/**
+	 * Flips the vector field of the currently showing element horizontally.
+	 * @param selected whether or not to flip
+	 */
 	public void setVectorFlippedH(final boolean selected) {
 		if (current != null) {
 			current.setVectorFlippedH(selected);
@@ -172,6 +221,10 @@ public class ElementPanel extends JPanel implements TemplateSelectionListener, E
 		}
 	}
 
+	/**
+	 * Flips the vector field of the currently showing element vertically.
+	 * @param selected whether or not to flip
+	 */
 	public void setVectorFlippedV(final boolean selected) {
 		if (current != null) {
 			current.setVectorFlippedV(selected);
@@ -180,6 +233,11 @@ public class ElementPanel extends JPanel implements TemplateSelectionListener, E
 		}
 	}
 
+	/**
+	 * Moves the currently showing element to the given coordinates.
+	 * @param x the x-position
+	 * @param y the y-position
+	 */
 	public void set(final int x, final int y) {
 		if (current != null) {
 			current.setX(x);
@@ -196,6 +254,10 @@ public class ElementPanel extends JPanel implements TemplateSelectionListener, E
 		}
 	}
 
+	/**
+	 * Notifies all modification listeners that the currently showing
+	 * element was modified.
+	 */
 	protected void notifyModificationListeners() {
 		for (ElementModificationListener l : modificationListeners) {
 			l.elementModified(current);

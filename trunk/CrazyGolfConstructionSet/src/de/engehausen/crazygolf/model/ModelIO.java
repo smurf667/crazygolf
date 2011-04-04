@@ -8,6 +8,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.StringTokenizer;
 
+/**
+ * I/O class for reading and writing courses.
+ */
 public class ModelIO {
 	
 	private static final char NEWLINE = '\n';
@@ -17,11 +20,21 @@ public class ModelIO {
 	private static final String SEMICOLON_STR = ";";
 	
 	private final Elements elements;
-		
+
+	/**
+	 * Creates the I/O class, which will be based on all known elements.
+	 * @param allElements all known elements.
+	 */
 	public ModelIO(final Elements allElements) {
 		elements = allElements;
 	}
 
+	/**
+	 * Saves a course to the given file.
+	 * @param outFile the file to save the course to.
+	 * @param course the course to save
+	 * @throws IOException in case of error.
+	 */
 	public void save(final File outFile, final Course course) throws IOException {
 		final BufferedWriter writer = new BufferedWriter(new FileWriter(outFile));
 		try {
@@ -35,6 +48,12 @@ public class ModelIO {
 		}
 	}
 
+	/**
+	 * Loads a course from the given file.
+	 * @param inFile the file to load the course from
+	 * @return the loaded course
+	 * @throws IOException in case of error
+	 */
 	public Course load(final File inFile) throws IOException {
 		final BufferedReader reader = new BufferedReader(new FileReader(inFile));
 		final Course result;
