@@ -13,7 +13,9 @@ import javax.swing.JPanel;
 
 import de.engehausen.crazygolf.event.ZoomListener;
 
-// with cursor keys
+/**
+ * A view that shows a portion of a hole zoomed.
+ */
 public class ZoomView extends JPanel implements ZoomListener, KeyListener, MouseListener {
 
 	private static final long serialVersionUID = 1L;
@@ -22,7 +24,10 @@ public class ZoomView extends JPanel implements ZoomListener, KeyListener, Mouse
 	
 	private BufferedImage buffer;
 	private int x, y;
-	
+
+	/**
+	 * Creates the zoom view.
+	 */
 	public ZoomView() {
 		super();
 		setAlignmentX(CENTER_ALIGNMENT);
