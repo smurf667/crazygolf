@@ -1,8 +1,0 @@
-MIDlet-Icon: /i.png
-MIDlet-Version: 0.9.0
-MIDlet-Vendor: Jan Engehausen
-MIDlet-Jar-URL: CrazyGolfGame.jar
-MicroEdition-Configuration: CLDC-1.1
-MIDlet-1: Main,,de.engehausen.mobile.crazygolf.Main
-MicroEdition-Profile: MIDP-2.0
-MIDlet-Name: CrazyGolf
