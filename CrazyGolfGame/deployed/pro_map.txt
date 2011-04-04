@@ -53,7 +53,6 @@ de.engehausen.mobile.crazygolf.Font -> de.engehausen.mobile.crazygolf.e:
     void parse(java.io.InputStream,java.lang.StringBuffer) -> a
 de.engehausen.mobile.crazygolf.FrameRenderer -> de.engehausen.mobile.crazygolf.f:
     de.engehausen.mobile.crazygolf.Area paint(javax.microedition.lcdui.Graphics) -> a
-    void handleClick(int,int) -> a
     void handleSwipe$60472a6f(int,int,int,int,long) -> a
     void reset() -> a
     boolean needsRepaint() -> b
@@ -97,12 +96,11 @@ de.engehausen.mobile.crazygolf.GameManager -> de.engehausen.mobile.crazygolf.g:
     void playSound(int) -> c
     de.engehausen.mobile.crazygolf.model.Course[] loadCourses(de.engehausen.mobile.crazygolf.Element[]) -> a
 de.engehausen.mobile.crazygolf.GolfGameCanvas -> de.engehausen.mobile.crazygolf.h:
-    boolean running -> b
-    de.engehausen.mobile.crazygolf.FrameRenderer frameRenderer -> c
-    int startX -> d
-    int startY -> e
-    long startTime -> f
-    java.lang.String JAN -> a
+    boolean running -> a
+    de.engehausen.mobile.crazygolf.FrameRenderer frameRenderer -> b
+    int startX -> c
+    int startY -> d
+    long startTime -> e
     void setFrameRenderer(de.engehausen.mobile.crazygolf.FrameRenderer) -> a
     void start() -> a
     void stop() -> b
@@ -217,13 +215,13 @@ de.engehausen.mobile.crazygolf.model.Hole -> d:
     de.engehausen.mobile.crazygolf.model.Rectangle[] determineStartZones(de.engehausen.mobile.crazygolf.Element[],de.engehausen.mobile.crazygolf.model.ElementOp[]) -> a
     de.engehausen.mobile.crazygolf.model.Rectangle[] determineHoles(de.engehausen.mobile.crazygolf.Element[],de.engehausen.mobile.crazygolf.model.ElementOp[]) -> b
     void determineVectors(de.engehausen.mobile.crazygolf.Element[],de.engehausen.mobile.crazygolf.model.ElementOp[],java.util.Vector,java.util.Vector) -> a
-    de.engehausen.mobile.crazygolf.model.VectorField[] toVectorField(java.util.Vector) -> a
     int getPar() -> a
     de.engehausen.mobile.crazygolf.model.ElementOp[] getOperations() -> b
     de.engehausen.mobile.crazygolf.model.Rectangle[] getStartZones() -> c
     de.engehausen.mobile.crazygolf.model.Rectangle[] getHoles() -> d
     de.engehausen.mobile.crazygolf.model.VectorField findVectorField(int,int,int) -> a
     de.engehausen.mobile.crazygolf.model.VectorField findVectorField(de.engehausen.mobile.crazygolf.model.VectorField[],int,int) -> a
+    de.engehausen.mobile.crazygolf.model.VectorField[] toVectorField(java.util.Vector) -> a
 de.engehausen.mobile.crazygolf.model.Player -> e:
     java.lang.String[] PLAYERS -> a
     int[] strokes -> b
@@ -251,7 +249,7 @@ de.engehausen.mobile.crazygolf.renderer.BallPlaceRenderer -> h:
     java.lang.String text -> e
     java.lang.String par -> f
     de.engehausen.mobile.crazygolf.model.Rectangle[] zones -> g
-    void handleClick(int,int) -> a
+    boolean handleClick(int,int) -> a
     boolean needsRepaint() -> b
     de.engehausen.mobile.crazygolf.Area paint(javax.microedition.lcdui.Graphics) -> a
     void reset() -> a
@@ -266,7 +264,7 @@ de.engehausen.mobile.crazygolf.renderer.GameRenderer -> i:
     boolean quitArmed -> g
     de.engehausen.mobile.crazygolf.Message message -> h
     long lastClick -> i
-    void handleClick(int,int) -> a
+    boolean handleClick(int,int) -> a
     void handleSwipe$60472a6f(int,int,int,int,long) -> a
     boolean needsRepaint() -> b
     de.engehausen.mobile.crazygolf.Area paint(javax.microedition.lcdui.Graphics) -> a
@@ -289,7 +287,7 @@ de.engehausen.mobile.crazygolf.renderer.IntroRenderer -> l:
     de.engehausen.mobile.crazygolf.GameManager manager -> a
     de.engehausen.mobile.crazygolf.Font font -> b
     boolean repaint -> c
-    void handleClick(int,int) -> a
+    boolean handleClick(int,int) -> a
     void handleSwipe$60472a6f(int,int,int,int,long) -> a
     de.engehausen.mobile.crazygolf.Area paint(javax.microedition.lcdui.Graphics) -> a
     void reset() -> a
@@ -299,7 +297,7 @@ de.engehausen.mobile.crazygolf.renderer.TableRenderer -> m:
     boolean repaint -> b
     de.engehausen.mobile.crazygolf.GameManager manager -> c
     de.engehausen.mobile.crazygolf.Font font -> d
-    void handleClick(int,int) -> a
+    boolean handleClick(int,int) -> a
     void handleSwipe$60472a6f(int,int,int,int,long) -> a
     boolean needsRepaint() -> b
     de.engehausen.mobile.crazygolf.Area paint(javax.microedition.lcdui.Graphics) -> a
@@ -315,7 +313,7 @@ de.engehausen.mobile.crazygolf.renderer.WinnerRenderer -> o:
     boolean repaint -> c
     java.lang.String winner -> d
     java.lang.String info -> e
-    void handleClick(int,int) -> a
+    boolean handleClick(int,int) -> a
     void handleSwipe$60472a6f(int,int,int,int,long) -> a
     boolean needsRepaint() -> b
     de.engehausen.mobile.crazygolf.Area paint(javax.microedition.lcdui.Graphics) -> a
