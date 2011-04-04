@@ -11,6 +11,9 @@ import de.engehausen.crazygolf.event.ElementSelectionListener;
 import de.engehausen.crazygolf.event.VectorDisplayListener;
 import de.engehausen.crazygolf.model.Element;
 
+/**
+ * Shows an element.
+ */
 public class ElementView extends JPanel implements ElementSelectionListener, VectorDisplayListener {
 
 	private static final long serialVersionUID = 1L;
@@ -18,7 +21,11 @@ public class ElementView extends JPanel implements ElementSelectionListener, Vec
 	
 	private final ElementPanel parent;
 	private boolean showVector;
-	
+
+	/**
+	 * Creates the view based on the given parent panel.
+	 * @param aParent the parent panel.
+	 */
 	public ElementView(final ElementPanel aParent) {
 		super();
 		parent = aParent;
@@ -26,7 +33,8 @@ public class ElementView extends JPanel implements ElementSelectionListener, Vec
 		setAlignmentY(TOP_ALIGNMENT);
 		showVector = true;
 	}
-	
+
+	// non-javadoc: see interface
 	public void setShowVector(final boolean flag) {
 		showVector = flag;
 		repaint();
